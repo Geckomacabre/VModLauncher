@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V Mod Launcher</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <!-- the pause menu sits over a dimmed scene: the player's own GTA V artwork, blurred (js/art.js) -->
+  <div class="backdrop" id="backdrop" aria-hidden="true"><div class="bd-layer"></div><div class="bd-layer"></div></div>
+
+  <div class="app" id="app">
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="brand">
+        <img src="img/logo.svg" alt="" class="brand-mark" width="36" height="36">
+        <div class="brand-text" aria-label="V Mod Launcher">
+          <span class="brand-word"><span class="brand-v">V</span> <span class="brand-rest">Mod Launcher</span></span>
+        </div>
+      </div>
+      <nav class="nav" id="nav">
+        <button class="nav-item" data-page="home" type="button"><span class="ico" data-icon="home"></span><span class="nav-label">Home</span></button>
+        <button class="nav-item" data-page="browse" type="button"><span class="ico" data-icon="grid"></span><span class="nav-label">Browse</span></button>
+        <button class="nav-item" data-page="library" type="button"><span class="ico" data-icon="library"></span><span class="nav-label">Library</span><span class="nav-count" id="nav-count" hidden></span></button>
+        <button class="nav-item" data-page="profiles" type="button"><span class="ico" data-icon="layers"></span><span class="nav-label">Profiles</span></button>
+        <button class="nav-item" data-page="tools" type="button"><span class="ico" data-icon="tools"></span><span class="nav-label">Tools</span><span class="nav-alert" id="nav-alert" hidden></span></button>
+        <button class="nav-item" data-page="settings" type="button"><span class="ico" data-icon="settings"></span><span class="nav-label">Settings</span></button>
+      </nav>
+      <div class="sidebar-foot">
+        <button class="game-switch" id="game-switch" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="game-switch-dot" id="game-switch-dot"></span>
+          <span class="game-switch-text">
+            <span class="game-switch-name" id="game-switch-name">No game</span>
+            <span class="game-switch-store" id="game-switch-store">Add a game folder</span>
+          </span>
+          <span class="ico ico-sm" data-icon="chevrons"></span>
+        </button>
+        <div class="game-menu" id="game-menu" role="listbox" hidden></div>
+      </div>
+    </aside>
+
+    <main class="main" id="main" tabindex="-1"></main>
+  </div>
+
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Mod details" hidden></aside>
+
+  <div class="modal-layer" id="modal-layer" hidden></div>
+  <div class="lightbox" id="lightbox" hidden></div>
+
+  <section class="tray" id="tray" aria-label="Downloads" hidden></section>
+  <div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <div class="drop-overlay" id="drop-overlay" hidden>
+    <div class="drop-card">
+      <span class="ico ico-xl" data-icon="download"></span>
+      <div class="drop-title">Drop to install</div>
+      <div class="drop-sub">.zip, .rar, .7z, .oiv, .asi, .dll or dlc.rpf</div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

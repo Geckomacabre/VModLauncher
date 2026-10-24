@@ -1,0 +1,4 @@
+<Project>
+  <!-- Third-party sources under lib\ (the CodeWalker submodule) build with their own settings, not this repo's
+       (nullable, version, implicit usings): MSBuild stops at the first Directory.Build.props it finds going up. -->
+</Project>

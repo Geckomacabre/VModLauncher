@@ -1,0 +1,19 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>0.1.0</Version>
+    <Company>VModLauncher</Company>
+    <Product>V Mod Launcher</Product>
+    <NoWarn>$(NoWarn);NU1701;CA1416</NoWarn>
+  </PropertyGroup>
+  <!-- the Legacy-only / Enhanced-only launcher builds (-p:Edition=...) keep their own intermediate files -->
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'VModLauncher' and '$(Edition)' != ''">
+    <BaseIntermediateOutputPath>obj\$(Edition)\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <!-- every build's obj\ and bin\ stay out of the source globs, whichever edition is building -->
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'VModLauncher'">
+    <DefaultItemExcludes>$(DefaultItemExcludes);obj/**;bin/**</DefaultItemExcludes>
+  </PropertyGroup>
+</Project>

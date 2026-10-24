@@ -1,0 +1,68 @@
+namespace VModLauncher.Core.Tools;
+
+/// <summary>
+/// Model names of the game's own vehicles (GTA V Legacy build 3889, base game + Rockstar DLC up to mp2026_01),
+/// used to tell a loose add-on car from a replace mod when the player hasn't scanned their game yet.
+/// Names only; newer Rockstar cars are covered once the game scan (GameIndex) exists.
+/// </summary>
+public static class AddonPackVanilla
+{
+    public static readonly HashSet<string> Vehicles = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "adder", "airbus", "airtug", "akula", "akuma", "aleutian", "alkonost", "alpha", "alphaz1", "ambulance", "annihilator", "apc", "arbitergt", "ardent",
+        "armytanker", "armytrailer", "armytrailer2", "asea", "asea2", "asterope", "asterope2", "astrale", "avarus", "avisa", "bagger", "baletrailer",
+        "baller", "baller2", "baller3", "baller4", "baller5", "baller6", "baller8", "banshee", "banshee2", "banshee3", "barracks", "barracks2", "barracks3",
+        "barrage", "bati", "bati2", "benson", "besra", "bestiagts", "bf400", "bfinjection", "biff", "bifta", "bison", "bison2", "bison3", "bjxl", "blade", "blazer",
+        "blazer2", "blazer3", "blazer4", "blazer5", "blimp", "blimp2", "blista", "blista2", "blista3", "bmx", "boattrailer", "bobcatxl", "bodhi2", "bombushka",
+        "boxville", "boxville2", "boxville3", "boxville4", "boxville5", "brawler", "brickade", "brickade2", "brioso", "brioso2", "bruiser3", "brutus2",
+        "brutus3", "btype", "btype2", "btype3", "buccaneer", "buccaneer2", "buffalo", "buffalo2", "buffalo3", "buffalo4", "buffalo5", "bulldozer", "bullet",
+        "burrito", "burrito2", "burrito3", "burrito4", "burrito5", "bus", "buzzard", "buzzard2", "cablecar", "caddy", "caddy2", "caddy3", "calico", "camper",
+        "carbonizzare", "carbonrs", "cargobob", "cargobob2", "cargobob3", "cargobob4", "cargobob5", "cargoplane", "casco", "cavalcade", "cavalcade2",
+        "cavalcade3", "cerberus2", "cerberus3", "chavosv6", "cheburek", "cheetah", "cheetah2", "chimera", "chino", "chino2", "cliffhanger", "coach",
+        "cog55", "cog552", "cogcabrio", "cognoscenti", "cognoscenti2", "comet2", "comet3", "comet4", "comet6", "comet7", "conada", "contender", "coquette",
+        "coquette2", "coquette3", "coquette4", "coquette5", "coquette6", "coureur", "cruiser", "crusader", "cuban800", "cutter", "cyclone", "cyclone2",
+        "daemon", "daemon2", "deathbike", "deathbike3", "defiler", "deviant", "diablous", "diablous2", "dilettante", "dilettante2", "dinghy", "dinghy2",
+        "dinghy3", "dinghy4", "dloader", "docktrailer", "docktug", "dodo", "dominator", "dominator10", "dominator2", "dominator3", "dominator4",
+        "dominator5", "dominator6", "dominator7", "dominator9", "dorado", "double", "draugur", "driftchavosv6", "drifthardy", "driftkeitora",
+        "driftl352", "driftsentinel2", "dubsta", "dubsta2", "dubsta3", "dukes", "dukes2", "dump", "dune", "dune2", "dune3", "dune4", "dune5", "duster", "duster2",
+        "elegy", "elegy2", "emperor", "emperor2", "emperor3", "enduro", "entity2", "entityxf", "esskey", "eurosx32", "everon3", "exemplar", "f620", "faction",
+        "faction2", "faction3", "faggio", "faggio2", "faggio3", "fbi", "fbi2", "fcr", "fcr2", "felon", "felon2", "feltzer2", "feltzer3", "firebolt", "firetruk",
+        "fixter", "flashgt", "flatbed", "fmj", "fmj2", "forklift", "formula", "fq2", "fr36", "freight", "freightcar", "freightcont1", "freightcont2",
+        "freightgrain", "freighttrailer", "frogger", "frogger2", "fugitive", "furoregt", "fusilade", "futo", "futo2", "gargoyle", "gauntlet",
+        "gauntlet2", "gauntlet5", "gb200", "gburrito", "gburrito2", "glendale", "gp1", "graintrailer", "granger", "granger2", "gresley", "growler", "gt750",
+        "guardian", "habanero", "hakuchou", "hakuchou2", "halftrack", "handler", "hardy", "hauler", "hauler2", "havok", "hermes", "hexer", "hotknife",
+        "howard", "hunter", "huntley", "hustler", "hydra", "imorgon", "impaler", "impaler2", "impaler5", "imperator", "infernus", "infernus2", "ingot",
+        "innovation", "insurgent", "insurgent2", "insurgent3", "intruder", "issi2", "issi4", "issi6", "issi7", "issi8", "itali2", "italigtb", "italigtb2",
+        "iwagen", "jackal", "jb700", "jester", "jester2", "jester3", "jester4", "jester5", "jet", "jetmax", "journey", "journey2", "kalahari", "kamacho",
+        "keitora", "khamelion", "khanjali", "kosatka", "kuruma", "kuruma2", "landstalker", "lazer", "le7b", "lectro", "lguard", "limo2", "longfin", "luiva",
+        "lurcher", "luxor", "luxor2", "lynx", "m23_1_prop_auto_salvage_stromberg", "mamba", "mammatus", "manana", "manchez", "marquis", "marshall",
+        "massacro", "massacro2", "maverick", "mesa", "mesa2", "mesa3", "metrotrain", "microlight", "miljet", "minimus", "minivan", "minivan2", "mixer",
+        "mixer2", "mogul", "molotok", "monroe", "monster", "monster3", "monster4", "monster5", "monstrociti", "moonbeam", "moonbeam2", "mower", "mule",
+        "mule2", "mule3", "nemesis", "nero", "nero2", "nightblade", "nightshade", "nightshark", "nimbus", "ninef", "ninef2", "niobe", "nokota", "omnis",
+        "oppressor", "oracle", "oracle2", "osiris", "packer", "panto", "paradise", "paragon3", "patriot", "patriot3", "pbus", "pcj", "penetrator", "penumbra",
+        "penumbra2", "peyote", "peyote3", "pfister811", "phantom", "phantom2", "phantom3", "phoenix", "picador", "pigalle", "pipistrello", "polbuffalo",
+        "polbuffalo6", "polcaracara", "polcoquette4", "poldominator10", "poldorado", "polgauntlet", "police", "police2", "police3", "police4",
+        "police5", "policeb", "policeb2", "policeold1", "policeold2", "policet", "polmav", "polterminus", "pony", "pony2", "pounder", "pounder2", "prairie",
+        "pranger", "predator", "premier", "previon", "primo", "primo2", "proptrailer", "prototipo", "pyro", "r300", "radi", "raiju", "raketrailer",
+        "rallytruck", "rancherxl", "rancherxl2", "rapidgt", "rapidgt2", "rapidgt3", "rapidgt4", "raptor", "ratbike", "ratloader", "ratloader2",
+        "rcbandito", "reaper", "rebel", "rebel2", "regina", "remus", "rentalbus", "retinue", "revolter", "rhapsody", "rhino", "riata", "riot", "riot2", "ripley",
+        "rocoto", "rogue", "romero", "rt3000", "rubble", "ruffian", "ruiner", "ruiner2", "ruiner3", "ruiner4", "rumpo", "rumpo2", "rumpo3", "ruston", "sabregt",
+        "sabregt2", "sadler", "sadler2", "sanchez", "sanchez2", "sanctus", "sandking", "sandking2", "savage", "savestra", "scarab2", "schafter2",
+        "schafter3", "schafter4", "schafter5", "schafter6", "schwarzer", "scorcher", "scrap", "seabreeze", "seashark", "seashark2", "seashark3",
+        "seasparrow2", "seasparrow3", "seminole", "sentinel", "sentinel2", "sentinel5", "sentinel6", "serrano", "seven70", "shamal", "sheava", "sheriff",
+        "sheriff2", "shinobi", "shotaro", "skylift", "slamvan", "slamvan2", "slamvan3", "slamvan6", "sovereign", "specter", "specter2", "speeder",
+        "speeder2", "speedo", "speedo2", "squalo", "stalion", "stalion2", "stanier", "starling", "stinger", "stingergt", "stingertt", "stockade",
+        "stockade3", "stratum", "streiter", "stretch", "stunt", "submersible", "submersible2", "sultan", "sultan2", "sultanrs", "suntrap", "superd",
+        "supervolito", "supervolito2", "surano", "surfer", "surfer2", "surfer3", "surge", "suzume", "swift", "swift2", "t20", "taco", "tailgater",
+        "tailgater2", "tampa", "tampa2", "tampa3", "tampa4", "tanker", "tanker2", "tankercar", "taxi", "technical", "technical2", "technical3", "tempesta",
+        "tenf", "terbyte", "terminus", "thrax", "thrust", "tiptruck", "tiptruck2", "titan", "torero", "tornado", "tornado2", "tornado3", "tornado4",
+        "tornado5", "tornado6", "toro", "toro2", "tourbus", "towtruck", "towtruck2", "tr2", "tr3", "tr4", "tractor", "tractor2", "tractor3", "trailerlarge",
+        "trailerlogs", "trailers", "trailers2", "trailers3", "trailers4", "trailersmall", "trailersmall2", "trash", "trash2", "trflat", "tribike",
+        "tribike2", "tribike3", "trophytruck", "trophytruck2", "tropic", "tropic2", "tropos", "tug", "tula", "turismo2", "turismo3", "turismor",
+        "tvtrailer", "tyrus", "uranus", "utillitruck", "utillitruck2", "utillitruck3", "vacca", "vader", "vagner", "valkyrie", "valkyrie2", "velum",
+        "velum2", "verlierer2", "vestra", "veto2", "vigero", "vigero2", "vigero3", "vigilante", "vindicator", "virgo", "virgo2", "virgo3", "visione",
+        "vivanite", "vivanite2", "volatus", "voltic", "voltic2", "voodoo", "voodoo2", "vortex", "warrener", "warrener2", "washington", "wastelander",
+        "weevil", "weevil2", "windsor", "windsor2", "wolfsbane", "woodlander", "xa21", "xls", "xls2", "xtreme", "yosemite1500", "youga", "youga2", "z190", "zeno",
+        "zentorno", "zion", "zion2", "zombiea", "zombieb", "zorrusso", "zr350", "zr380", "zr3802", "zr3803", "ztype",
+    };
+}

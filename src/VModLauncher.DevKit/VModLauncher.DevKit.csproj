@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Tools for mod authors: build, inspect, diff, verify and sandbox-test OIV packages, read archives and the
+       game's registration, scan releases, convert resources for Enhanced, and an MCP server over all of it. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>VModLauncher.DevKit</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VModLauncher.Core\VModLauncher.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="VModLauncher.Tests" />
+  </ItemGroup>
+
+</Project>

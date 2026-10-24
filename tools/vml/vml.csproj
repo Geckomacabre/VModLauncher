@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <AssemblyName>vml</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\VModLauncher.Core\VModLauncher.Core.csproj" />
+    <ProjectReference Include="..\..\src\VModLauncher.DevKit\VModLauncher.DevKit.csproj" />
+    <!-- built first, then copied next to vml.exe: "vml scriptcheck" and the MCP script_check tool run it -->
+    <ProjectReference Include="..\ScriptCheck\ScriptCheck.csproj" ReferenceOutputAssembly="false" SkipGetTargetFrameworkProperties="true" GlobalPropertiesToRemove="TargetFramework" />
+  </ItemGroup>
+
+  <Target Name="CopyScriptCheck" AfterTargets="Build">
+    <ItemGroup>
+      <ScriptCheckFiles Include="..\ScriptCheck\bin\$(Configuration)\net48\ScriptCheck.exe;..\ScriptCheck\bin\$(Configuration)\net48\ScriptCheck.exe.config" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ScriptCheckFiles)" DestinationFolder="$(OutDir)" Condition="Exists('%(FullPath)')" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

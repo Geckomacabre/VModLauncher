@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>VModLauncher</RootNamespace>
+    <AssemblyName>VModLauncher</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <PublishReferencesDocumentationFiles>false</PublishReferencesDocumentationFiles>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+
+  <!--
+    One codebase, three builds:
+      dotnet build                      -> VModLauncher.exe, handles Legacy and Enhanced (game switcher)
+      dotnet build -p:Edition=Legacy    -> VModLauncher.Legacy.exe, only GTA V Legacy
+      dotnet build -p:Edition=Enhanced  -> VModLauncher.Enhanced.exe, only GTA V Enhanced
+  -->
+  <PropertyGroup Condition="'$(Edition)' != ''">
+    <AssemblyName>VModLauncher.$(Edition)</AssemblyName>
+    <Product>V Mod Launcher $(Edition)</Product>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(Edition)' != ''">
+    <AssemblyMetadata Include="LockedEdition" Value="$(Edition)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4258.31" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VModLauncher.Core\VModLauncher.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\**\*" CopyToOutputDirectory="PreserveNewest" />
+    <EmbeddedResource Include="SiteScripts\*.js" LogicalName="SiteScripts.%(Filename)%(Extension)" />
+    <Resource Include="app.ico" />
+  </ItemGroup>
+
+</Project>
